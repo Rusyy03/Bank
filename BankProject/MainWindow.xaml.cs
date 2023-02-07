@@ -23,6 +23,9 @@ namespace BankProject
         public MainWindow()
         {
             InitializeComponent();
+
+
+            //ХУЙ
         }
     }
 }
