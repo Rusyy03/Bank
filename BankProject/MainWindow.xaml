@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="900"
+        >
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0,1" StartPoint="1,0" SpreadMethod="Pad">
+            <GradientStop Color="#FF4845DA"/>
+            <GradientStop Color="#FF2E573C" Offset="1"/>
+            <GradientStop Color="#FF006797" Offset="0.5"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-
+        <Frame x:Name="MainFrameWindow" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Source="/AuthPage.xaml" NavigationUIVisibility="Hidden"/>
+        
     </Grid>
 </Window>

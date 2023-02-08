@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,30 @@ namespace BankProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        // фрейм для перехода между страницами
+        // статик - чтобы использовать без ссылки на MainWindow
+        private static Frame? MainFrameStatic { get; set; }
+        internal static StackPanel? CardWindow { get; set; }
+        // создание экземпляра контекста базы данных
+        // статик - чтобы использовать без ссылки на MainWindow
+        internal static BankContext Context = new();
+
+        // текущий клиент
+        internal static Customer? currentCustomer { get; set; }
+        internal static BankCard? currentCard { get; set; }
+
+        // единственный экземпляр главной страницы
+        internal static MainPage mainPage = new();
         public MainWindow()
         {
             InitializeComponent();
 
-
-            //ХУЙ
+            // передаем объект xaml в статическую переменную
+            MainWindow.MainFrameStatic = MainFrameWindow;
+            MainWindow.CardWindow = mainPage.CardWindow;
         }
+
+        // метод перехода между страницами, to - страница куда нужно перейти
+        public static void SetFrame(object to) => MainFrameStatic.Navigate(to);
     }
 }
